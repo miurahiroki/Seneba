@@ -2,7 +2,8 @@
   resources :categories
   resources :users
 resources :tasks do  
-    get 'search' , on: :collection  
+    post 'search' , on: :collection 
+ 
   end  
   
 
