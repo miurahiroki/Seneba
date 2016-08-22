@@ -1,4 +1,4 @@
-class TasksController < ApplicationController
+﻿class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   # GET /tasks
@@ -51,7 +51,17 @@ class TasksController < ApplicationController
     end
   end
 
-  # DELETE /tasks/1
+     
+  
+ def search    
+    @name = params["search"]["name"]    
+    @tasks = Task.where("name like '%#{params["search"]["name"]}%'")    
+    render :index    
+  end    
+  
+  
+  # DELETE /tasks/1  
+
   # DELETE /tasks/1.json
   def destroy
     @task.destroy
