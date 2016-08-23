@@ -12,23 +12,23 @@
   <% end %>
 
   <div class="field">
-    <font size="4"><%= f.label :due_date %>日付</font><br>
+    <font size="3">日付</font><br>
     <%= f.date_select :due_date %>
   </div>
   <div class="field">
-    <font size="4"><%= f.label :category_id %>カテゴリー</font><br>
+    <font size="3">カテゴリー</font><br>
     <%= f.collection_select :category_id,Category.all ,:categoryname,:categoryname %>
   </div>
   <div class="field">
-    <font size="4"><%= f.label :name %>予定内容</font><br>
+    <font size="3">予定内容</font><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <font size="4"><%= f.label :done %>チェック</font><br>
+    <font size="3">チェック</font><br>
     <%= f.check_box :done %>
   </div>
   <div class="field">
-    <font size="4"><%= f.label :user_id %>ユーザーID</font><br>
+    <font size="3">ユーザーID</font><br>
     <%= f.collection_select :user_id,User.all ,:username,:username %> 
   </div>
   <div class="actions">
