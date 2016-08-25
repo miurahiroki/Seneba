@@ -18,11 +18,11 @@
 <table>
   <thead>
     <tr>
-      <th><font size="3">日付</font></th>
-      <th><font size="3">カテゴリー</font></th>
-      <th><font size="3">予定内容</font></th>
-      <th><font size="3">チェック</font></th>
-      <th><font size="3">ユーザーID</font></th>
+      <th><font size="2">日付</font></th>
+      <th><font size="2">カテゴリー</font></th>
+      <th><font size="2">予定内容</font></th>
+      <th><font size="2">チェック</font></th>
+      <th><font size="2">ユーザーID</font></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -30,10 +30,14 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
-        
-        <font size="3"><td><%= link_to '詳細', task %></font></td>
-        <font size="3"><td><%= link_to '更新', edit_task_path(task) %></font></td>
-        <font size="3"><td><%= link_to '削除', task, method: :delete, data: { confirm: '削除しますか?' } %></font></td>
+        <td><%= task.due_date %></td>
+        <td><%= task.category_id %></td>
+        <td><%= task.name %></td>
+        <td><%= task.done %></td>
+        <td><%= task.user_id %></td>
+        <font size="2"><td><%= link_to '詳細', task %></font></td>
+        <font size="2"><td><%= link_to '更新', edit_task_path(task) %></font></td>
+        <font size="2"><td><%= link_to '削除', task, method: :delete, data: { confirm: '削除しますか?' } %></font></td>
       </tr>
     <% end %>
   </tbody>
@@ -41,4 +45,4 @@
 
 <br>
 
-<font size="3"><%= link_to 'タスク登録', new_task_path %></font>
+<font size="2"><%= link_to 'タスク登録', new_task_path %></font>
