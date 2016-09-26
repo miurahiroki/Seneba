@@ -4,16 +4,13 @@
 
 <%= form_tag({:action => "search"}) do %>   
 <%= collection_select 'search', 'user', User.all, :username, :username, {selected: @search_user,include_blank: "全員"} %>
-<%= collection_select 'search', 'category', Category.all, :categoryname, :categoryname, {selected: @search_category,include_blank: "全カテゴリー"} %>   
+<%= collection_select 'search', 'category', Category.all, :categoryname, :categoryname, {selected: @search_category,include_blank: "全カテゴリー"} %>
    
   <%= text_field_tag "search[name]",@search_value %>  
     
   <%= submit_tag "検索" %>    
-  <%= link_to "リセット", tasks_path%>    
-<% end %>    
-    
-  
-  
+  <%= link_to "リセット", tasks_path%>
+<% end %>
 
 <table>
   <thead>
@@ -30,6 +27,15 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
+
+<td>
+<% if (task.due_date) - (Date.today) <= 0 && task.done == true %>
+<font color="red"><%= task.due_date %></font>
+<% else %>
+<font color="black"><%= task.due_date %></font>
+<% end %>
+</td>
+
         <td><%= task.due_date %></td>
         <td><%= task.category_id %></td>
         <td><%= task.name %></td>
