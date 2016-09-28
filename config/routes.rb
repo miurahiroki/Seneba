@@ -1,9 +1,12 @@
 ﻿Rails.application.routes.draw do
-  resources :categories
-  resources :users
+  resources :categories do
+   post 'search' , on: :collection
+  end
+  resources :users do
+   post 'search' , on: :collection
+  end
 resources :tasks do  
     post 'search' , on: :collection 
- 
   end  
   
 
